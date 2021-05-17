@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Stock Price
+{% endblock %}
+
+{% block main %}
+<h1> {{ response['symbol'] }}</h1>
+    {{ response['name'] }}<br>
+    {{ response['price'] }}
+{% endblock %}

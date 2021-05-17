@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<h2>SELL SHARES</h2>
+    <form action="/sell" method="POST" >
+      <div class="form-group">
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">Symbol</label><br>
+        <select class="form-control" id="exampleFormControlSelect1" name="symbol">
+          {% for key , value in rows.items() %}
+            {% if (value <=0)   %}
+              {% continue %}
+            {% endif %}
+          <option>{{ key }}</option>
+          {% endfor %}
+        </select>
+      </div>
+       <!-- <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="stock symbol" placeholder="Symbol" style="margin:10px" name="symbol" ><br> -->
+        <input type="number" class="form-control" id="exampleInputPassword1" placeholder="Shares" style="margin:10px" name="shares" ><br>
+      <button type="submit" class="btn btn-primary">SELL</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Account
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Symbol</th>
+          <th scope="col">Name</th>
+          <th scope="col">Shares</th>
+          <th scope="col">Price</th>
+          <th scope="col">TOTAL</th>
+        </tr>
+      </thead>
+      {% for key , value in rows.items() %}
+        {% if (value <=0)   %}
+          {% continue %}
+        {% endif %}
+        <tbody>
+        <tr>
+          <th scope="row">{{key}} </th>
+          <td>{{price[key][2]}}</td>
+          <td> {{value}} </td>
+          <td>{{price[key][0]}}</td>
+          <td>{{price[key][1] }} </td>
+        </tr>
+      {% endfor %}
+
+      <tbody>
+        <tr>
+          <th scope="row">CASH</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{cash}}</td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <th scope="row"></th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><b>{{TOTAL}}</b></td>
+        </tr>
+      </tbody>
+    </table>
+{% endblock %}
